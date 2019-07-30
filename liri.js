@@ -4,6 +4,10 @@ var request = require("request");
 
 var keys = require('./keys.js');
 
+var bandsintown = require('bandsintown')("codingbootcamp");
+
+var moment = require('moment');
+
 //Required Spotify API & Keys
 var spotify = require('spotify');
 var spotKeys = keys.spotify;
