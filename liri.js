@@ -75,7 +75,7 @@ function spotifyThis(song) {
     });
 }
 
-//1. concert-this
+//2. concert-this
 function concertThis(artist) {
     var artistQ = artist.split(' ').join('+');
     var queryURL = "https://rest.bandsintown.com/artists/" + artistQ + "/events?app_id=" + keys.bandsintown;
@@ -127,7 +127,7 @@ function movieThis(movie){
         });
 }
 
-// 4. do-what-it-says 
+//4. do-what-it-says 
 function getRandom() {
     fs.readFile("random.txt", "utf8", function(error, data) {
         if(error){
