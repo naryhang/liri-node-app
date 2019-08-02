@@ -11,8 +11,8 @@ LIRI is like iPhone's SIRI. However, while SIRI is a Speech Interpretation and R
 4.	do-what-it-says
 
 # Technologies used:
-*•	Node.js
-*•	Javascript
+•	Node.js
+•	Javascript
 
 # NPM packages:
 •	spotify - A simple to use API library for the Spotify REST API.
@@ -29,9 +29,9 @@ If no song is provided then the program will default to "The Sign" by Ace of Bas
 •	Step Two: node liri concert-this <artist here>.
 
 This will show the following information about the concert in your terminal/bash window:
-o	Venue.
-o	Location.
-o	Date (MM/DD/YYYY).
+o	Venue.  
+o	Location.  
+o	Date (MM/DD/YYYY).  
 
 •	Step Three: node liri.js movie-this <movie name here>.
 This will output the following information to your terminal/bash window:
