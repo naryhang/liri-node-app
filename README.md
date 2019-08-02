@@ -26,8 +26,8 @@ o	Artist(s)
 o	The song's name  
 o	The album that the song is from  
 If no song is provided then the program will default to "The Sign" by Ace of Base  
+  
 •	Step Two: node liri concert-this <artist here>.  
-
 This will show the following information about the concert in your terminal/bash window:  
 o	Venue.  
 o	Location.  
@@ -45,6 +45,7 @@ o	Plot of the movie.
 o	Actors in the movie.  
 o	Rotten Tomatoes URL.  
 If the user doesn't type a movie in, the program will output data for the movie 'Mr. Nobody.'  
+  
 •	Step Four: node liri.js do-what-it-says  
 This will output the command placed in random.txt file  
   
