@@ -11,42 +11,42 @@ LIRI is like iPhone's SIRI. However, while SIRI is a Speech Interpretation and R
 4.	do-what-it-says
 
 # Technologies used:
-•	Node.js
-•	Javascript
+•	Node.js  
+•	Javascript  
 
 # NPM packages:
-•	spotify - A simple to use API library for the Spotify REST API.
-•	request - Request is designed to be the simplest way possible to make http calls. It supports HTTPS and follows redirects by default.
-•	dotenv - Dotenv is a zero-dependency module that loads environment variables from a .env file into process.env.
+•	spotify - A simple to use API library for the Spotify REST API.  
+•	request - Request is designed to be the simplest way possible to make http calls. It supports HTTPS and follows redirects by default.  
+•	dotenv - Dotenv is a zero-dependency module that loads environment variables from a .env file into process.env.  
 •	moment – A lightweight JavaScript date library for parsing, validating, manipulating, and formatting dates.
-How to Run LIRI-Bot.
-•	Step One: node liri spotify-this-song <song name here>.
-This will show the following information about the song in your terminal/bash window:
-o	Artist(s)
-o	The song's name
-o	The album that the song is from
-If no song is provided then the program will default to "The Sign" by Ace of Base
-•	Step Two: node liri concert-this <artist here>.
+How to Run LIRI-Bot.  
+•	Step One: node liri spotify-this-song <song name here>.  
+This will show the following information about the song in your terminal/bash window:  
+o	Artist(s)  
+o	The song's name  
+o	The album that the song is from  
+If no song is provided then the program will default to "The Sign" by Ace of Base  
+•	Step Two: node liri concert-this <artist here>.  
 
-This will show the following information about the concert in your terminal/bash window:
+This will show the following information about the concert in your terminal/bash window:  
 o	Venue.  
 o	Location.  
 o	Date (MM/DD/YYYY).  
 
-•	Step Three: node liri.js movie-this <movie name here>.
+•	Step Three: node liri.js movie-this <movie name here>.  
 This will output the following information to your terminal/bash window:
-o	Title of the movie.
-o	Year the movie came out.
-o	IMDB Rating of the movie.
-o	Rotten Tomatoes Rating.
-o	Country where the movie was produced.
-o	Language of the movie.
-o	Plot of the movie.
-o	Actors in the movie.
-o	Rotten Tomatoes URL.
-If the user doesn't type a movie in, the program will output data for the movie 'Mr. Nobody.'
-•	Step Four: node liri.js do-what-it-says
-This will output the command placed in random.txt file
+o	Title of the movie.  
+o	Year the movie came out.  
+o	IMDB Rating of the movie.  
+o	Rotten Tomatoes Rating.  
+o	Country where the movie was produced.  
+o	Language of the movie.  
+o	Plot of the movie.  
+o	Actors in the movie.  
+o	Rotten Tomatoes URL.  
+If the user doesn't type a movie in, the program will output data for the movie 'Mr. Nobody.'  
+•	Step Four: node liri.js do-what-it-says  
+This will output the command placed in random.txt file  
   
 # Author
 •	Nary Hang
