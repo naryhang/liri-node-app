@@ -1,5 +1,10 @@
 spotify-this-song,"I Want it That Way"
 
+Narys-MacBook-Pro:Desktop naryhang$ node liri.js mariah carey
+this is loaded
+/Users/naryhang/Desktop/keys.js:13
+ spotify: spotify,
+          
 Venue Name: Caesars Palace Las Vegas Hotel & Casino
 
 Venue Location: Las Vegas, United States
