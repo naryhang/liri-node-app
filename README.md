@@ -18,8 +18,10 @@ LIRI is like iPhone's SIRI. However, while SIRI is a Speech Interpretation and R
 •	spotify - A simple to use API library for the Spotify REST API.  
 •	request - Request is designed to be the simplest way possible to make http calls. It supports HTTPS and follows redirects by default.  
 •	dotenv - Dotenv is a zero-dependency module that loads environment variables from a .env file into process.env.  
-•	moment – A lightweight JavaScript date library for parsing, validating, manipulating, and formatting dates.
+•	moment – A lightweight JavaScript date library for parsing, validating, manipulating, and formatting dates.   
+
 How to Run LIRI-Bot.  
+
 •	Step One: node liri spotify-this-song <song name here>.  
 This will show the following information about the song in your terminal/bash window:  
 o	Artist(s)  
