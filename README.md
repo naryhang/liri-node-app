@@ -4,23 +4,23 @@
 
 LIRI is like iPhone's SIRI. However, while SIRI is a Speech Interpretation and Recognition Interface, LIRI is a Language Interpretation and Recognition Interface. LIRI will be a command line node app that takes in parameters and gives you back data.
 
-# LIRI uses the following commands:
+## LIRI uses the following commands:
 1.	spotify-this-song
 2.	concert-this
 3.	movie-this
 4.	do-what-it-says
 
-# Technologies used:
+## Technologies used:
 •	Node.js  
 •	Javascript  
 
-# NPM packages:
+## NPM packages:
 •	spotify - A simple to use API library for the Spotify REST API.  
 •	request - Request is designed to be the simplest way possible to make http calls. It supports HTTPS and follows redirects by default.  
 •	dotenv - Dotenv is a zero-dependency module that loads environment variables from a .env file into process.env.  
 •	moment – A lightweight JavaScript date library for parsing, validating, manipulating, and formatting dates.   
 
-How to Run LIRI-Bot.  
+## How to Run LIRI-Bot.  
 
 •	Step One: node liri spotify-this-song <song name here>.  
 This will show the following information about the song in your terminal/bash window:  
@@ -51,5 +51,5 @@ If the user doesn't type a movie in, the program will output data for the movie 
 •	Step Four: node liri.js do-what-it-says  
 This will output the command placed in random.txt file  
   
-# Author
+## Author
 •	Nary Hang
