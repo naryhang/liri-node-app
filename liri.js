@@ -1,95 +1,157 @@
-require("dotenv").config();
+// Code to read set any enviroment variables with the dotenv package
+require('dotenv').config();
 
-var request = require("request");
-
-var keys = require('./keys.js');
-
-var bandsintown = require('bandsintown')("codingbootcamp");
-
+// Importing files needed to run the functions
+var fs = require('fs');
+var request = require('request');
+var keys =  require('./keys.js');
+var Spotify = require('node-spotify-api');
 var moment = require('moment');
 
-//Required Spotify API & Keys
-var spotify = require('spotify');
-var spotKeys = keys.spotify;
+var spotify = new Spotify(keys.spotify);
 
-var fs = require('fs');
 
-// Input Argument
-var command = process.argv[2];
-var input = process.argv[3]; //song or movie input
 
-//Switch Case
-switch(command) {
-    case "spotify-this-song":
-        spotSong(input);
+var inputCommand = process.argv[2];
+var inputParam = process.argv.slice(3).join(' ');
+
+function userRequest(command, param) {
+
+    switch(command) {
+        case 'spotify-this-song':
+        spotifyThis(param);
         break;
-    case "movie-this":
-        showMovie(input)
+        
+        case 'concert-this':
+        concertThis(param);
         break;
-    case "do-what-it-says":
-        read();
+
+        case 'movie-this':
+        movieThis(param);
         break;
-    default:
-        console.log("Try again, wrong command has been enter.");
+
+        case 'do-what-it-says':
+        getRandom();
+        break;
+
+        // If no command is entered, this is the default message to user
+        default:
+        console.log('Please enter a valid command: spotify-this-song, concert-this, movie-this, or do-what-it-says.');
+    }
+    
 }
 
-//2. spotify-this-song
-function spotSong(song) {
-    if (song == null) {
-        song = 'computer love';
+//spotify-this
+function spotifyThis(song) {
+    if (!song) {
+        song = 'The Sign by Ace of Base';
     }
-    request(`https://api.spotify.com/v1/search?q=${song}&type=track`, function(error, response, body) {
-        if (!error && response.statusCode == 200) {
-            body = JSON.parse(body);
-            console.log(' ');
-            console.log(`Artist: ${body.tracks.items[0].artists[0].name}`);
-            console.log(`Song: ${body.tracks.items[0].name}`);
-            console.log(`Preview Link: ${body.tracks.items[0].preview_url}`);
-            console.log(`Album: ${body.tracks.items[0].album.name}`);
-            console.log(' ');
-            fs.appendFile('terminal.log', ('=============== LOG ENTRY BEGIN ===============\r\n' + Date() +'\r\n \r\nTERMINAL COMMANDS:\r\n$: ' + process.argv + '\r\n \r\nDATA OUTPUT:\r\n' + 'Artist: ' + jsonBody.tracks.items[0].artists[0].name + '\r\nSong: ' + jsonBody.tracks.items[0].name + '\r\nPreview Link: ' + jsonBody.tracks.items[0].preview_url + '\r\nAlbum: ' + jsonBody.tracks.items[0].album.name + '\r\n=============== LOG ENTRY END ===============\r\n \r\n'), function(err) {
-                if (err) throw err;
-            });
+    spotify.search ({ type: 'track', query: song}, function (err, data){
+        if (err){
+            return console.log('Error occured: ' + err);
+            
+        }
+        else{
+            var tracks = data.tracks.items;
+            for (var i =  0; i < tracks.length; i++) {
+                console.log("------------------------------");
+                var artistArr = tracks[i].artists;
+                var artists = [];
+                for (var j = 0; j < artistArr.length; j++){
+                    artists.push(artistArr[j].name);
+                    
+                }
+               console.log('Artist: ' + artists.join(", "));
+                console.log('Song: ' + tracks[i].name);
+                console.log('Album: ' + tracks[i].album.name);
+
+                if (tracks[i].preview_url == null) {
+                    console.log ('Preview unavailable');
+                }
+                else{
+                    console.log('Preview: ' + tracks[i].preview_url);
+                }
+                console.log("------------------------------")
+            }
+                
         }
     });
 }
 
-//3. movie-this
-function showMovie(movie) {
-    if (movie == null) {
-        movie = 'rocky';
-    }
-    var omdbUrl = `http://www.omdbapi.com/?t=${movie}&plot=short&apikey=trilogy`;
-    request(omdbUrl, function(error, response, body) {
-        if (!error && response.statusCode == 200) {
-            jsonBody = JSON.parse(body);
-            console.log(' ');
-            console.log(`Title: ${body.Title}`);
-            console.log(`Year Released: ${body.Year}`);
-            console.log(`IMBD Rating: ${body.imdbRating}`);
-            console.log(`Rotten Tomatoes Rating: ${body.Rating[1].Value}`);
-            console.log(`Language: ${body.Language}`);
-            console.log(`Movie Plot: ${body.Plot}`);
-            console.log(`Actor(s): ${body.Actors}`);
-            fs.appendFile('log.txt', ('=============== LOG ENTRY BEGIN ===============\r\n' + Date() + '\r\n \r\nTERMINAL COMMANDS: ' + process.argv + '\r\nDATA OUTPUT:\r\n' + 'Title: ' + jsonBody.Title + '\r\nYear: ' + jsonBody.Year + '\r\nIMDb Rating: ' + jsonBody.imdbRating + '\r\nCountry: ' + jsonBody.Country + '\r\nLanguage: ' + jsonBody.Language + '\r\nPlot: ' + jsonBody.Plot + '\r\nActors: ' + jsonBody.Actors + '\r\nRotten Tomatoes Rating: ' + jsonBody.tomatoRating + '\r\nRotten Tomatoes URL: ' + jsonBody.tomatoURL + '\r\n =============== LOG ENTRY END ===============\r\n \r\n'), function(err) {
-                if (err) throw err;
-            });
+//concert-this
+function concertThis(artist) {
+    var artistQ = artist.split(' ').join('+');
+
+    var queryURL = "https://rest.bandsintown.com/artists/" + artistQ + "/events?app_id=" + keys.bandsintown;
+    request(queryURL, function(err, response, body) {
+        if (err) {
+            console.log(err);
+            return;
+        }
+        else{
+            var result = JSON.parse(body);
+            console.log(result);
+            for (var i = 0; i < result.length; i++) {
+                console.log("------------------------------")
+                console.log("Venue: " + result[i].venue.name);
+                console.log("Location: " + result[i].venue.city + ", " + (result[i].venue.region || result[i].venue.country));
+                console.log("Date: " + moment(result[i].datetime).format("MM/DD/YYYY"));
+                console.log("------------------------------")
+            }
         }
     });
 }
-//4. do-what-it-says
-function read() {
-    fs.readFile('random.txt', 'utf8', function(error, data) {
-        if (error) {
+
+//movie-this
+function movieThis(movie){
+    if(!movie) {
+       movie = "Mr. Nobody";
+    }
+
+    let queryURL = 'http://www.omdbapi.com/?t=' + movie +'&y=&plot=long&tomatoes=true&r=json&apikey=trilogy'
+
+    let movieQ = movie.split(' ').join('+');
+
+    request(queryURL, function(error, response, body) {
+
+        if(error) {
             console.log(error);
         } else {
-            var dataArr = data.split(',');
-            if (dataArr[0] === 'spotify') {
-                spotifyThis(dataArr[1]);
+            let result = JSON.parse(body);
+            console.log("------------------------------")
+            console.log("Title: " + result["Title"]);
+	        console.log("Year: " + result["Year"]);
+            console.log("IMDB Rating: " + result["imdbRating"]);
+            if ( result.Ratings[1]) {
+                console.log("Rotten Tomatoes Rating: " + result.Ratings[1].Value);
             }
-            if (dataArr[0] === 'omdb') {
-                omdbThis(dataArr[1]);
-            }
-        }
-    });
+            
+	        console.log("Country: " + result["Country"]);
+	        console.log("Language: " + result["Language"]);
+	        console.log("Plot: " + result["Plot"]);
+	        console.log("Actors: " + result["Actors"]);
+            console.log("Rotten Tomatoes URL: " + result["tomatoURL"])
+            console.log("------------------------------")
+    }
+        });
 }
+
+
+function getRandom() {
+    fs.readFile("random.txt", "utf8", function(error, data) {
+        if(error){
+            console.log(error);
+        }else {
+            var dataSplit = data.split(',');
+            var readCommand = dataSplit[0];
+            var readParam = dataSplit[1];
+            
+        
+
+            userRequest(readCommand, readParam);
+        }
+    })
+}
+
+
+ userRequest(inputCommand, inputParam);
