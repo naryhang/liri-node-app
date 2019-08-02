@@ -22,21 +22,21 @@ LIRI is like iPhone's SIRI. However, while SIRI is a Speech Interpretation and R
 
 ## How to Run LIRI-Bot.  
 
-•	Step One: node liri spotify-this-song <song name here>.  
-This will show the following information about the song in your terminal/bash window:  
+•	Step One: node liri spotify-this-song (song name here)  
+This will show the following information about the song in your terminal/bash window:   
 o	Artist(s)  
 o	The song's name  
 o	The album that the song is from  
 If no song is provided then the program will default to "The Sign" by Ace of Base  
   
-•	Step Two: node liri concert-this <artist here>.  
-This will show the following information about the concert in your terminal/bash window:  
+•	Step Two: node liri concert-this (artist here)    
+This will show the following information about the concert in your terminal/bash window:    
 o	Venue.  
 o	Location.  
 o	Date (MM/DD/YYYY).  
 
-•	Step Three: node liri.js movie-this <movie name here>.  
-This will output the following information to your terminal/bash window:
+•	Step Three: node liri.js movie-this (movie name here)   
+This will output the following information to your terminal/bash window  
 o	Title of the movie.  
 o	Year the movie came out.  
 o	IMDB Rating of the movie.  
