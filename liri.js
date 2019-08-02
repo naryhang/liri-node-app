@@ -8,13 +8,15 @@ var keys =  require('./keys.js');
 var Spotify = require('node-spotify-api');
 var moment = require('moment');
 
+//API and secret keys
 var spotify = new Spotify(keys.spotify);
 
 
-
+//set arguments
 var inputCommand = process.argv[2];
 var inputParam = process.argv.slice(3).join(' ');
 
+//switch case
 function userRequest(command, param) {
 
     switch(command) {
@@ -36,12 +38,12 @@ function userRequest(command, param) {
 
         // If no command is entered, this is the default message to user
         default:
-        console.log('Please enter a valid command: spotify-this-song, concert-this, movie-this, or do-what-it-says.');
+        console.log('Please enter a valid command.');
     }
     
 }
 
-//spotify-this
+//1. spotify-this
 function spotifyThis(song) {
     if (!song) {
         song = 'The Sign by Ace of Base';
@@ -78,7 +80,7 @@ function spotifyThis(song) {
     });
 }
 
-//concert-this
+//1. concert-this
 function concertThis(artist) {
     var artistQ = artist.split(' ').join('+');
 
@@ -102,7 +104,7 @@ function concertThis(artist) {
     });
 }
 
-//movie-this
+//3. movie-this
 function movieThis(movie){
     if(!movie) {
        movie = "Mr. Nobody";
@@ -136,7 +138,7 @@ function movieThis(movie){
         });
 }
 
-
+// 4. do-what-it-says 
 function getRandom() {
     fs.readFile("random.txt", "utf8", function(error, data) {
         if(error){
