@@ -29,7 +29,7 @@ o	The song's name
 o	The album that the song is from  
 If no song is provided then the program will default to "The Sign" by Ace of Base  
 
-https://user-images.githubusercontent.com/22119689/62405784-b0d3db80-b556-11e9-9508-3d57eb410f5a.png
+<img src="https://user-images.githubusercontent.com/22119689/62405784-b0d3db80-b556-11e9-9508-3d57eb410f5a.png">
   
 •	Step Two: node liri concert-this (artist here)    
 This will show the following information about the concert in your terminal/bash window:    
