@@ -37,6 +37,8 @@ o	Venue.
 o	Location.  
 o	Date (MM/DD/YYYY).  
 
+https://user-images.githubusercontent.com/22119689/62405786-b7fae980-b556-11e9-8d07-9be470e7d0a5.png
+
 •	Step Three: node liri.js movie-this (movie name here)   
 This will output the following information to your terminal/bash window  
 o	Title of the movie.  
