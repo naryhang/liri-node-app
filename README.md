@@ -37,7 +37,7 @@ o	Venue.
 o	Location.  
 o	Date (MM/DD/YYYY).  
 
-https://user-images.githubusercontent.com/22119689/62405786-b7fae980-b556-11e9-8d07-9be470e7d0a5.png
+<img src="https://user-images.githubusercontent.com/22119689/62405786-b7fae980-b556-11e9-8d07-9be470e7d0a5.png">
 
 •	Step Three: node liri.js movie-this (movie name here)   
 This will output the following information to your terminal/bash window  
@@ -52,12 +52,12 @@ o	Actors in the movie.
 o	Rotten Tomatoes URL.  
 If the user doesn't type a movie in, the program will output data for the movie 'Mr. Nobody.'  
 
-https://user-images.githubusercontent.com/22119689/62405787-be896100-b556-11e9-94ee-3a8c80d3fe86.png
+<img src="https://user-images.githubusercontent.com/22119689/62405787-be896100-b556-11e9-94ee-3a8c80d3fe86.png">
   
 •	Step Four: node liri.js do-what-it-says  
 This will output the command placed in random.txt file  
 
-https://user-images.githubusercontent.com/22119689/62405789-c47f4200-b556-11e9-96a1-3b0fc212c868.png
+<img src="https://user-images.githubusercontent.com/22119689/62405789-c47f4200-b556-11e9-96a1-3b0fc212c868.png">
   
 ## Author
 •	Nary Hang
