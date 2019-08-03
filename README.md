@@ -56,6 +56,8 @@ https://user-images.githubusercontent.com/22119689/62405787-be896100-b556-11e9-9
   
 •	Step Four: node liri.js do-what-it-says  
 This will output the command placed in random.txt file  
+
+https://user-images.githubusercontent.com/22119689/62405789-c47f4200-b556-11e9-96a1-3b0fc212c868.png
   
 ## Author
 •	Nary Hang
