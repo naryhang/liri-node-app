@@ -51,6 +51,8 @@ o	Plot of the movie.
 o	Actors in the movie.  
 o	Rotten Tomatoes URL.  
 If the user doesn't type a movie in, the program will output data for the movie 'Mr. Nobody.'  
+
+https://user-images.githubusercontent.com/22119689/62405787-be896100-b556-11e9-94ee-3a8c80d3fe86.png
   
 •	Step Four: node liri.js do-what-it-says  
 This will output the command placed in random.txt file  
